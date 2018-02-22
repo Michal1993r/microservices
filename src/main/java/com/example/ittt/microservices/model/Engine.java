@@ -2,25 +2,26 @@ package com.example.ittt.microservices.model;
 
 import lombok.Data;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 
 @Entity
 @Data
-public class Car {
+public class Engine {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @NotNull
-    @ManyToOne(cascade = CascadeType.ALL)
-    private Engine engine;
+    private Double volume;
 
     @NotNull
-    @ManyToOne(cascade = CascadeType.ALL)
-    private Brand brand;
+    private String name;
 
     @NotNull
-    private String model;
+    private Integer horsePower;
 }
